@@ -1,5 +1,5 @@
 body{
-    background: #343d46;
+    background: #343d46; /* slate blue? */
     font-family: 'Lato', sans-serif;
 }
 
@@ -9,11 +9,11 @@ body{
     position: absolute;
     text-align: center;
     margin: auto;
-    color:  #f4f1d6;
+    color:  #f4f1d6; /* volkswagen pastel white */
 }
 
-strong {
-    color: #c4302b;
+strong, h2, h3 {
+    color: #c4302b; /* youtube red */
 }
 
 .box {
@@ -55,7 +55,8 @@ strong {
 #search-term input#query:hover, #search-term input#query:focus,
     #search-term input#query:active{
     outline:none;
-    background: #f4f1d6;
+    background: #5c636a;
+    color: white;
   }
 
 
