@@ -93,12 +93,15 @@ strong, h2, h3 {
     position: absolute;
     top: 12rem;
 }
+
 #channel-section {
     float: left;
+    width: 50%;
 }
 
 #video-section {
     float: right;
+    width: 50%;
 }
 
 a {

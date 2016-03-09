@@ -70,10 +70,12 @@ function showResults(results, typeIndex){
         }
 
         if (link != "bad") {
-            if (descr.length > 25) {
-                descr = descr.substring(0, 25) + "...";
+            if (descr.length > 75) {
+                descr = descr.substring(0, 75) + "...";
             }
-            img = "<a target=\'_blank\' class=\'" + resource[typeIndex] + "\' href=\'" + link + "\'><figure><img id=\'thumbnail" + i + "\' src=\'" + results[i].snippet.thumbnails.medium.url + "\' title=\'" + descr + "\' width=\'120\' height=\'90\'><figcaption>" + descr + "</figcaption></figure></a>";
+            /*img = "<a target=\'_blank\' class=\'" + resource[typeIndex] + "\' href=\'" + link + "\'><figure><img id=\'thumbnail" + i + "\' src=\'" + results[i].snippet.thumbnails.medium.url + "\' title=\'" + descr + "\' width=\'120\' height=\'90\'><figcaption>" + descr + "</figcaption></figure></a>";
+*/
+            img = "<figure><a target=\'_blank\' class=\'" + resource[typeIndex] + "\' href=\'" + link + "\'><img id=\'thumbnail" + i + "\' src=\'" + results[i].snippet.thumbnails.medium.url + "\' title=\'" + descr + "\' width=\'120\' height=\'90\'><figcaption>" + descr + "</figcaption></a></figure>";
             console.log(img);
             html += img;
         }
