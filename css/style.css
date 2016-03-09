@@ -18,6 +18,14 @@ body{
     color:  #f4f1d6; /* volkswagen pastel white */
 }
 
+.masthead p {
+    width: 100%;
+    top: 25%;
+    position: absolute;
+    text-align: center;
+    margin: auto;
+    color: #c4302b;
+}
 strong, h2, h3 {
     color: #c4302b; /* youtube red */
 }
