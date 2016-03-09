@@ -26,23 +26,23 @@ function getRequest(searchTerm, typeIndex){
         maxResults: 5
     };
     url = 'https://www.googleapis.com/youtube/v3/search';
-    $('#search-results').append('<h3>' + resource[typeIndex].toUpperCase() + ' RESULTS</h3>');
     $.getJSON(url, params, function(data) {
-        console.log("These are your results for: " + resource[typeIndex]);
         console.log(data);
-        showResults(data.items);
+        showResults(data.items, typeIndex);
     });
 }
 
-function showResults(results){
+function showResults(results, typeIndex){
     var html = "";
     var img = "";
     var descr = "";
     var link = "";
+    $('#search-results').append('<h3>' + resource[typeIndex].toUpperCase() + ' RESULTS</h3>');
+    console.log("These are your results for: " + resource[typeIndex]);
     for (var i = 0; i < results.length; i++) {
         descr = results[i].snippet.title;
         link = "https://www.youtube.com"; // if no channeId, go to playlistId, or videoId, final default to youTube homepage
-        img = "<a target=\'_blank\' href=" + link + "><img id=\'thumbnail" + i + "\' src=" + results[i].snippet.thumbnails.default.url + " width=\'120\' height=\'90\'></a>";
+        img = "<a target=\'_blank\' class = " + resource[typeIndex] + " href=" + link + "><img id=\'thumbnail" + i + "\' src=" + results[i].snippet.thumbnails.default.url + " width=\'120\' height=\'90\'></a>";
         html += '<p>' + img + descr + '</p>';
     }    
     $('#search-results').append(html);
