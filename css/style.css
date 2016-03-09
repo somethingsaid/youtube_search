@@ -2,7 +2,13 @@ body{
     background: #343d46; /* slate blue? */
     font-family: 'Lato', sans-serif;
 }
-
+.search {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+    background-color: #343d46;
+}
 .masthead h1 {
     width: 100%;
     top: 3%;
@@ -82,6 +88,11 @@ strong, h2, h3 {
 }
 
 /* Results section declarations */
+#search-results {
+    width: 100%;
+    position: absolute;
+    top: 12rem;
+}
 #channel-section {
     float: left;
 }

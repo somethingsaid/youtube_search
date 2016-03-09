@@ -34,7 +34,7 @@ function getRequest(searchTerm, typeIndex, next){
         // securing api keys with environment variable
         q: searchTerm,
         type: resource[typeIndex],
-        maxResults: 5,
+        maxResults: 4,
         pageToken: next
     };
     url = 'https://www.googleapis.com/youtube/v3/search';
