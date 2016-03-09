@@ -7,12 +7,20 @@
 	<script src="js/app.js" rel="JavaScript" type="text/JavaScript"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<form id="search-term">
-		<input id="query" type="text" name="text_entry" placeholder="search YouTube">
-		<button type="button">Show more results</button>
-	</form>
+	<div class="masthead">
+		<h1>Search <strong>YouTube</strong></h1>
+	</div>
+	<div class="box">
+	    <form id="search-term">
+		    <span class="icon"><i class="fa fa-search"></i></span>
+		    <input id="query" type="text" name="text_entry" placeholder="What do you want to watch?">
+	    </form>
+	    <button class = "button" type="button">Show more results</button>
+	</div>
 	<div id="search-results">
 	</div>
 </body>

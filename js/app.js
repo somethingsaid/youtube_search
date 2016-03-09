@@ -70,11 +70,12 @@ function showResults(results, typeIndex){
         }
 
         if (link != "bad") {
-            img = "<a target=\'_blank\' class = " + resource[typeIndex] + " href=" + link + "><figure><img id=\'thumbnail" + i + "\' src=" + results[i].snippet.thumbnails.default.url + " title=" + descr + " width=\'120\' height=\'90\'><figcaption>" + descr + "</figcaption></figure></a>";
+            img = "<a target=\'_blank\' class=\'" + resource[typeIndex] + "\' href=\'" + link + "\'><figure><img id=\'thumbnail" + i + "\' src=\'" + results[i].snippet.thumbnails.default.url + "\' title=\'" + descr + "\' width=\'120\' height=\'90\'><figcaption>" + descr + "</figcaption></figure></a>";
             if (descr.length > 25) {
                 descr = descr.substring(0, 25) + "...";
             }
-            html += '<p>' + img + '</p>';
+            console.log(img);
+            html += img;
         }
     }
     $('#search-results').append(html);
