@@ -5,7 +5,7 @@ body{
 
 .masthead h1 {
     width: 100%;
-    top: 5%;
+    top: 3%;
     position: absolute;
     text-align: center;
     margin: auto;
@@ -17,9 +17,9 @@ strong, h2, h3 {
 }
 
 .box {
-    margin: 6rem auto;
+    margin: 5rem auto;
     width: 23%;
-    height: 3rem;
+    height: 2rem;
 }
 
 .icon {
@@ -62,15 +62,14 @@ strong, h2, h3 {
 
 .button {
     width: 70%;
-    height: 3rem;
+    height: 2rem;
     border: none;
     border-radius: 5px;
     color: #fff;
     outline:none;
     background-color: #4CAF50;
     position: relative;
-    margin: auto;
-    top: 2rem;
+    margin: 1rem auto;
     left: 17%;
 }  
 
@@ -80,6 +79,15 @@ strong, h2, h3 {
 
 .button:active {
     background-color:#265728;
+}
+
+/* Results section declarations */
+#channel-section {
+    float: left;
+}
+
+#video-section {
+    float: right;
 }
 
 @media screen and (max-width: 800px) {

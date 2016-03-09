@@ -51,7 +51,7 @@ function showResults(results, typeIndex){
     var descr = "";
     var link = "";
     // Create header for section
-    $('#search-results').append('<h3 class=' + resource[typeIndex] + '>' + resource[typeIndex].toUpperCase() + ' RESULTS</h3>');
+    var header = '<h3 class=' + resource[typeIndex] + '>' + resource[typeIndex].toUpperCase() + ' RESULTS</h3>';
     console.log("These are your results for: " + resource[typeIndex]);
 
     // Iterate and piece together html entry for each video item
@@ -78,7 +78,7 @@ function showResults(results, typeIndex){
             html += img;
         }
     }
-    $('#search-results').append(html);
+    $('#search-results').append("<div id=\'" + resource[typeIndex] + "-section\'>" + header + html + "</div>");
 
     // reveal show more results button
     $("button").show();
