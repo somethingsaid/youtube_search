@@ -1,21 +1,32 @@
 $(document).ready(function() {
+$("button").hide();
 
-var resource = ["channel", "video"]; // playlists are slightly different
+// Global variables
+var resource = ["channel", "video"];
+var nextPage = "";
+var searchTerm = "";
+/*
+playlists are slightly different...
+    requires to retrieve playlistId from search
+    then request https://www.googleapis.com/youtube/v3/playlistItems
+    to then retrieve at least 1 videoId to satisfy url requirement:
+    https://www.youtube.com/watch?v=<videoId>&list=<playlistId>
+*/ 
 
 // when user submits query
 $(function(){
     $('#search-term').submit(function(event){
         event.preventDefault();
         $("#search-results").empty();
-        var searchTerm = $('#query').val();
+        searchTerm = $('#query').val();
         for (var i = 0; i < 2; i++) {
-            getRequest(searchTerm, i);
+            getRequest(searchTerm, i, nextPage);
         }
     });
 });
 
 // functions
-function getRequest(searchTerm, typeIndex){
+function getRequest(searchTerm, typeIndex, next){
     var params = {
         part: 'snippet',
         key: 'AIzaSyDcmzVTMCn9L2AIgwdFVhYmRbFjYV80pbY', // my API key
@@ -23,10 +34,12 @@ function getRequest(searchTerm, typeIndex){
         // securing api keys with environment variable
         q: searchTerm,
         type: resource[typeIndex],
-        maxResults: 5
+        maxResults: 5,
+        pageToken: next
     };
     url = 'https://www.googleapis.com/youtube/v3/search';
     $.getJSON(url, params, function(data) {
+        nextPage = data.nextPageToken;
         console.log(data);
         showResults(data.items, typeIndex);
     });
@@ -57,13 +70,25 @@ function showResults(results, typeIndex){
         }
 
         if (link != "bad") {
-            img = "<a target=\'_blank\' class = " + resource[typeIndex] + " href=" + link + "><img id=\'thumbnail" + i + "\' src=" + results[i].snippet.thumbnails.default.url + " width=\'120\' height=\'90\'></a>";
-            html += '<p>' + img + descr + '</p>';
+            img = "<a target=\'_blank\' class = " + resource[typeIndex] + " href=" + link + "><figure><img id=\'thumbnail" + i + "\' src=" + results[i].snippet.thumbnails.default.url + " title=" + descr + " width=\'120\' height=\'90\'><figcaption>" + descr + "</figcaption></figure></a>";
+            if (descr.length > 25) {
+                descr = descr.substring(0, 25) + "...";
+            }
+            html += '<p>' + img + '</p>';
         }
     }
     $('#search-results').append(html);
+
+    // reveal show more results button
+    $("button").show();
 }
 
-// play with also next-page-token
+// show more results on click
+$("button").click(function() {
+    for (var i = 0; i < 2; i++) {
+        $("#search-results").empty();
+        getRequest(searchTerm, i, nextPage);
+    }
+});
 //EOF
 });
