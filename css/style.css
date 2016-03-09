@@ -1,4 +1,4 @@
-div {
+/*div {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -29,3 +29,4 @@ a:nth-of-type(2n) {
     margin-right: 0;
   }
 }
+*/
